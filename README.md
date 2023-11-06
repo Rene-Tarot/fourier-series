@@ -22,4 +22,4 @@ Este programa es una interfaz gráfica que calcula y grafica la serie de Fourier
 
 ### Como correr
 1. ` python3 fourier.py `
-2. ` python3 main.py`
+2. ` python3 main.py `

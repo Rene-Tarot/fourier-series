@@ -1,19 +1,14 @@
 # Imports
 import numpy as np
-import matplotlib.pyplot as plt
-import tkinter as tk
-from tkinter import *
-import math
-
-# Integrals
 from scipy.integrate import quad
 import sympy as smp
+import math
 import warnings
 
 warnings.filterwarnings("ignore")
 
 
-# Fourier Coefficients
+# Fourier series Coefficients
 def fourier_a0(f, T):
     func = lambda t: f(t)
     a0, _ = quad(func, 0, T)
@@ -22,6 +17,7 @@ def fourier_a0(f, T):
     return a0
 
 
+# Obtains the equation for printing to string
 def symbolic_a0(array, T):
     t = smp.symbols("t", real=True)
     r = lambda t, low, high: (t > low) & (t < high)
@@ -40,8 +36,7 @@ def symbolic_a0(array, T):
     piecewise_expr.append((0, True))
 
     return (
-        1
-        / T
+        1/T
         * smp.integrate(
             smp.Piecewise(*piecewise_expr), (t, 0, T), conds="none"
         ).simplify()
@@ -57,6 +52,7 @@ def fourier_an(f, T, n):
     return an
 
 
+# Obtains the equation for printing to string
 def symbolic_an(array, T):
     t = smp.symbols("t", real=True)
     n = smp.symbols("n", real=True)
@@ -78,12 +74,12 @@ def symbolic_an(array, T):
     piecewise_expr.append((0, True))
 
     return (
-        2
-        / T
+        2/T
         * smp.integrate(
             smp.Piecewise(*piecewise_expr) * f, (t, 0, T), conds="none"
         ).simplify()
     )
+
 
 def symbolic_an_n(array, T, n):
     t = smp.symbols("t", real=True)
@@ -105,12 +101,12 @@ def symbolic_an_n(array, T, n):
     piecewise_expr.append((0, True))
 
     return (
-        2
-        / T
+        2/T
         * smp.integrate(
             smp.Piecewise(*piecewise_expr) * f, (t, 0, T), conds="none"
         ).simplify()
     )
+
 
 def fourier_bn(f, T, n):
     w = (2 * np.pi) / T
@@ -142,12 +138,12 @@ def symbolic_bn(array, T):
     piecewise_expr.append((0, True))
 
     return (
-        2
-        / T
+        2/T
         * smp.integrate(
             smp.Piecewise(*piecewise_expr) * f, (t, 0, T), conds="none"
         ).simplify()
     )
+
 
 def symbolic_bn_n(array, T, n):
     t = smp.symbols("t", real=True)
@@ -169,8 +165,7 @@ def symbolic_bn_n(array, T, n):
     piecewise_expr.append((0, True))
 
     return (
-        2
-        / T
+        2/T
         * smp.integrate(
             smp.Piecewise(*piecewise_expr) * f, (t, 0, T), conds="none"
         ).simplify()
@@ -185,15 +180,17 @@ def energy_f(array, T):
 
     # Build the Piecewise function from the array
     for segment in array:
-      equation_lambda_numpy = lambda t: eval(segment["equation"].get())
-      equation_sympy = smp.sympify(equation_lambda_numpy(t))
-      lower_bound = float(segment["lower_bound"].get())
-      upper_bound = float(segment["upper_bound"].get())
-      piecewise_expr.append((equation_sympy, r(t, lower_bound, upper_bound)))
+        equation_lambda_numpy = lambda t: eval(segment["equation"].get())
+        equation_sympy = smp.sympify(equation_lambda_numpy(t))
+        lower_bound = float(segment["lower_bound"].get())
+        upper_bound = float(segment["upper_bound"].get())
+        piecewise_expr.append((equation_sympy, r(t, lower_bound, upper_bound)))
 
     piecewise_expr.append((0, True))
 
-    return smp.integrate(smp.Piecewise(*piecewise_expr)**2, (t, 0, T), conds="none").simplify()
+    return smp.integrate(
+        smp.Piecewise(*piecewise_expr) ** 2, (t, 0, T), conds="none"
+    ).simplify()
 
 
 # Integral cuadrada del error (ICE)
@@ -223,7 +220,7 @@ def ice(array, T):
     condition = 5.0
 
     # Finds the value of N
-    while math.isclose(conditional, condition) or conditional<=condition:
+    while math.isclose(conditional, condition) or conditional <= condition:
         # Calculate the sumation
         result = 0
         for n in range(1, N + 1):

@@ -5,6 +5,7 @@ from tkinter import messagebox
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 # Embbed Graph in UI
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from scipy.integrate import quad
@@ -94,8 +95,9 @@ def plot_function():
                 return 0
 
             s_n = fourier.fourier_suma_parcial(get_equation, T, N)
+
             y_values_aprox = [s_n(x) for x in t]
-            ax.plot(t, y_values_aprox, label="Aproximation", color="red")
+            ax.plot(t, y_values_aprox, label="Approximation", color="red")
 
             a_0 = fourier.symbolic_a0(equations, T)
             a_n = fourier.symbolic_an(equations, T)  # .args[1][0]
@@ -110,8 +112,8 @@ def plot_function():
             plt.legend()
             canvas.draw()
 
-        except Exception as e:
-            messagebox.showerror("Error!", f"The function has an error!{e}")
+        except:
+            messagebox.showerror("Error!", "The function has an error!")
     else:
         messagebox.showerror("Error!", "Please, fill all fields.")
 

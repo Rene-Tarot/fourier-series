@@ -1,16 +1,25 @@
 # Serie de Fourier Truncada
 
-Este programa es una interfaz grafica que calcula y grafica la serie de Fourier aproximada a un valor N.
+Este programa es una interfaz gráfica que calcula y grafica la serie de Fourier aproximada a un valor N.
 
-## Getting Started
-
-Guide users on how to set up and run your Python project. Include information about prerequisites and installation steps.
+## Como empezar
 
 ### Prerequisitos
 
-List any Python packages, libraries, or dependencies that need to be installed before running your Python project.
+* Matplotlib
+* Numpy
+* Scipy
+* Sympy
+* Tkinter
 
 ### Instalación
 
-Provide step-by-step instructions on how to install and set up your Python project. Include any relevant pip commands or configuration steps.
+* ` pip install matplotlib `
+* ` pip install numpy `
+* ` pip install scipy `
+* ` pip install sympy `
+* ` pip install tkinter `
 
+### Como correr
+1. ` python3 fourier.py `
+2. ` python3 main.py`

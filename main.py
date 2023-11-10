@@ -172,7 +172,7 @@ def addEquations():
 # Creates main window
 window = tk.Tk()
 # Names the tab
-window.title("Serie de Fourier Truncada")
+window.title("Truncated Fourier Series")
 
 # Create frame for organization
 frame = tk.Frame(window)

@@ -1,10 +1,19 @@
-# Serie de Fourier Truncada
+# Truncated Fourier Series
 
-Este programa es una interfaz gráfica que calcula y grafica la serie de Fourier aproximada a un valor N.
+This program is a graphical interface that calculates and plots the Fourier series approximated to a value N.
 
-## Como empezar
+## Table of Contents
 
-### Prerequisitos
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+
+
+
+## Getting Started 
+
+### Prerequisites
 
 * Matplotlib
 * Numpy
@@ -12,7 +21,7 @@ Este programa es una interfaz gráfica que calcula y grafica la serie de Fourier
 * Sympy
 * Tkinter
 
-### Instalación
+### Installation
 
 * ` pip install matplotlib `
 * ` pip install numpy `
@@ -20,6 +29,6 @@ Este programa es una interfaz gráfica que calcula y grafica la serie de Fourier
 * ` pip install sympy `
 * ` pip install tkinter `
 
-### Como correr
+### Usage
 1. ` python3 fourier.py `
 2. ` python3 main.py `

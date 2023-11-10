@@ -124,9 +124,8 @@ def show_instructions():
     popup.title("Instructions")
 
     instructions = "Welcome to the Fourier Series Calculator\n\n"
-    instructions += "1. Por favor usar funciones $f(t)$.\n"
-    instructions += "2. Para funciones trigonometricas, exponenciales. Por favor usar 'np.sin(t)'.\n"
-    instructions += "3. El tiempo de espera de la calculacion puede ser largo.\n"
+    instructions += "1.\n"
+
 
     label = tk.Label(popup, text=instructions)
     label.pack(padx=20, pady=20)
